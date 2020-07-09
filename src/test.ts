@@ -3,8 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MPESA_CONSUMER_KEY = process.env.MPESA_CONSUMER_KEY + '';
-const MPESA_CONSUMER_SECRET = process.env.MPESA_CONSUMER_SECRET + '';
+const MPESA_CONSUMER_KEY = "randomness";
+const MPESA_CONSUMER_SECRET = "randomness";
 
 class PaymentService {
   private mpesa = new MpesaService(MPESA_CONSUMER_KEY, MPESA_CONSUMER_SECRET)
@@ -29,5 +29,12 @@ const payload: LipaNaMpesaPayload = {
     BusinessShortCode: "174379"
 }
 
-const lipaNaMpesa = new PaymentService().lipaNaMpesa(payload)
-console.log(lipaNaMpesa)
+const testLipaNaMpesa =async ()=>{
+    const lipaNaMpesa = new PaymentService()
+    lipaNaMpesa.lipaNaMpesa(payload)
+        .then(res=>console.log(res.data))
+        .catch(e=>console.log(e.response.statusText))
+}
+
+testLipaNaMpesa()
+
