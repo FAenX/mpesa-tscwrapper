@@ -1,13 +1,13 @@
 {
   "name": "mpesa-tswrapper",
   "version": "1.0.0",
-  "description": "",
+  "description": "A wrapper fo mpesa api using typescript",
   "main": "dist/index.js",
   "scripts": {
     "test": "node dist/test.js",
     "build": "tsc"
   },
-  "author": "",
+  "author": "<kipronofb@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
