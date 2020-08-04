@@ -1,13 +1,18 @@
 {
-  "name": "mpesa-tswrapper",
+  "name": "mpesa-tsc",
   "version": "1.0.0",
-  "description": "A wrapper fo mpesa api using typescript",
+  "description": "A wrapper for mpesa api using typescript",
   "main": "dist/index.js",
   "scripts": {
     "test": "node dist/test.js",
     "build": "tsc"
   },
-  "author": "<kipronofb@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FAenX/mpesa-tscwrapper.git"
+  },
+  "homepage": "https://github.com/FAenX/mpesa-tscwrapper",
+  "author": "Emmanuel Kiprono <kipronofb@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",

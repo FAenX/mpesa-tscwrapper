@@ -5,9 +5,9 @@ dotenv.config();
 
 const MPESA_CONSUMER_KEY = "randomness";
 const MPESA_CONSUMER_SECRET = "randomness";
-const BusinessShortCode = process.env.MPESA_SHORT_CODE + '';
-const Password = process.env.MPESA_PASSWORD + '';
-const CallBackURL = process.env.MPESA_CALLBACK_URL + '';
+const BusinessShortCode = '174379';
+const Password = 'password';
+const CallBackURL = "https://calbackurl";
 
 class PaymentService {
   private mpesa = new MpesaService(
@@ -32,10 +32,10 @@ const payload: LipaNaMpesaPayload = {
     Timestamp: '20200712',
     TransactionType: 'CustomerPayBillOnline',
     PartyA: '254712345675',
-    PartyB: "174379",
-    CallBackURL: "http://url.com/mpesa-callback",
-    Password: "some password",
-    BusinessShortCode: "174379"
+    PartyB: BusinessShortCode,
+    CallBackURL,
+    Password,
+    BusinessShortCode
 }
 
 const testLipaNaMpesa =async ()=>{
