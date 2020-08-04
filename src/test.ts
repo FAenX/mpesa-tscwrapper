@@ -5,9 +5,18 @@ dotenv.config();
 
 const MPESA_CONSUMER_KEY = "randomness";
 const MPESA_CONSUMER_SECRET = "randomness";
+const BusinessShortCode = process.env.MPESA_SHORT_CODE + '';
+const Password = process.env.MPESA_PASSWORD + '';
+const CallBackURL = process.env.MPESA_CALLBACK_URL + '';
 
 class PaymentService {
-  private mpesa = new MpesaService(MPESA_CONSUMER_KEY, MPESA_CONSUMER_SECRET)
+  private mpesa = new MpesaService(
+    MPESA_CONSUMER_KEY, 
+    MPESA_CONSUMER_SECRET,
+    BusinessShortCode,
+    Password,
+    CallBackURL
+  )
   constructor() {}
 
   async lipaNaMpesa(payload: LipaNaMpesaPayload) {

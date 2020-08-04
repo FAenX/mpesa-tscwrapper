@@ -10,9 +10,7 @@ const MPESA_PRODUCTION_URL = '';
 // eslint-disable-next-line max-len
 const MPESA_SANDBOX_AUTH_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 
-const BusinessShortCode = process.env.MPESA_SHORT_CODE + '';
-const Password = process.env.MPESA_PASSWORD + '';
-const CallBackURL = process.env.MPESA_CALLBACK_URL + '';
+
 
 export interface LipaNaMpesaPayload {
     BusinessShortCode: string,
@@ -31,12 +29,23 @@ export interface LipaNaMpesaPayload {
 export class MpesaService {
   private consumerKey: string
   private consumerSecret: string
+  private BusinessShortCode: string;
+  private Password: string;
+  private CallBackURL: string;
 
   constructor(
-    consumerKey: string, consumerSecret: string,
+    consumerKey: string, 
+    consumerSecret: string,
+    BusinessShortCode: string,
+    Password: string,
+    CallBackURL: string,
+
   ) {
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
+    this.BusinessShortCode = BusinessShortCode;
+    this.Password = Password;
+    this.CallBackURL = CallBackURL;
   }
 
   private async authenticate() {
@@ -50,7 +59,7 @@ export class MpesaService {
 
   async lipaNaMpesaOnline(payload: Partial<LipaNaMpesaPayload>) {
     const Timestamp = moment().format('YYYYMMDDhhmmss');
-    const password = Buffer.from(BusinessShortCode + Password + Timestamp)
+    const password = Buffer.from(this.BusinessShortCode + this.Password + Timestamp)
       .toString('base64');
 
     const TransactionType: string = 'CustomerPayBillOnline';
@@ -58,15 +67,15 @@ export class MpesaService {
     const auth = 'Bearer ' + ACCESS_TOKEN;
 
     const data: LipaNaMpesaPayload = {
-      BusinessShortCode,
+      BusinessShortCode: this.BusinessShortCode,
       Password: password,
       Timestamp,
       TransactionType,
       Amount: payload.Amount + '',
       PartyA: payload.PhoneNumber + '',
-      PartyB: BusinessShortCode,
+      PartyB: this.BusinessShortCode,
       PhoneNumber: payload.PhoneNumber + '',
-      CallBackURL,
+      CallBackURL: this.CallBackURL,
       AccountReference: payload.AccountReference + '',
       TransactionDesc: payload.TransactionDesc + '',
 
