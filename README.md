@@ -33,5 +33,5 @@ let response = mpesaService.lipaNaMpesaOnline(
      PhoneNumber: '254700123456',
      AccountReference: 'YOUR RANDOM REFERENCE CODE',
      TransactionDesc: 'description',
-)
+).then(res=>res).catch(err=>err)
 ```  
