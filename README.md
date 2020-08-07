@@ -3,6 +3,6 @@
 Wrapper for Mpesa Daraja Api using typescript
 
 It is still being developed,
-I currently only does lipa na mpesa for sandbox.
+It currently only does lipa na mpesa for sandbox applications.
 
-just a heads up
+Just a heads up !!
