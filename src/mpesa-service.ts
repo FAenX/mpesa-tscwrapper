@@ -57,7 +57,9 @@ export class MpesaService {
     return res.data.access_token;
   }
 
-  async lipaNaMpesaOnline(payload: Partial<LipaNaMpesaPayload>) {
+  
+
+  async lipaNaMpesaOnline(payload: Payload) {
     const Timestamp = moment().format('YYYYMMDDhhmmss');
     const password = Buffer.from(this.BusinessShortCode + this.Password + Timestamp)
       .toString('base64');
@@ -97,5 +99,13 @@ export class MpesaService {
         };
       });
   }
+}
+
+interface Payload{
+  Amount: string,
+  PhoneNumber: string,
+  AccountReference: string,
+  TransactionDesc: string
+
 }
 
