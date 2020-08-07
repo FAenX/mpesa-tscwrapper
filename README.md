@@ -8,9 +8,8 @@ It currently only does lipa na mpesa for sandbox applications.
 Just a heads up !!
 
 >`npm intall --save mpesa-tsc`
-`yarn add mpesa-tsc`
-
-`import {MpesaService} from 'mpesa-tsc'`
+>`yarn add mpesa-tsc`
+>`import {MpesaService} from 'mpesa-tsc'`
 
 `let mpesaService = new MpesaService(`
     `MPESA_CONSUMER_KEY,`
