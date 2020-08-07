@@ -7,11 +7,10 @@ It currently only does lipa na mpesa for sandbox applications.
 
 Just a heads up !!
 
-`npm intall --save mpesa-tsc`
+>`npm intall --save mpesa-tsc`
 `yarn add mpesa-tsc`
 
 `import {MpesaService} from 'mpesa-tsc'`
-
 
 `let mpesaService = new MpesaService(`
     `MPESA_CONSUMER_KEY,`
@@ -21,13 +20,10 @@ Just a heads up !!
     `MPESA_CALLBACK_URL`
 `)`
 
-
-
 `let response = mpesaService.lipaNaMpesaOnline(`
       `Amount: '500',`
-     ` PartyA: '254700123456',   ` 
-     ` PhoneNumber: '254700123456',  `    
-     ` AccountReference: 'YOUR RANDOM REFERENCE CODE',`
-     ` TransactionDesc: 'description',`
+     `PartyA: '254700123456',`
+     `PhoneNumber: '254700123456',`
+     `AccountReference: 'YOUR RANDOM REFERENCE CODE',`
+     `TransactionDesc: 'description',`
 `)`
-
