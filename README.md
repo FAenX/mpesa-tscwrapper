@@ -27,11 +27,11 @@ let mpesaService = new MpesaService(
 ```
 
 ``` javascript
-let response = mpesaService.lipaNaMpesaOnline(
+let response = mpesaService.lipaNaMpesaOnline({
      Amount: '500',
      PartyA: '254700123456',
      PhoneNumber: '254700123456',
      AccountReference: 'YOUR RANDOM REFERENCE CODE',
      TransactionDesc: 'description',
-).then(res=>res).catch(err=>err)
+})
 ```  
