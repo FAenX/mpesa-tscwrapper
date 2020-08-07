@@ -8,9 +8,12 @@ It currently only does lipa na mpesa for sandbox applications.
 Just a heads up !!
 
 ``` javascript
-    npm intall --save mpesa-tsc 
-    yarn add mpesa-tsc  
-    import {MpesaService} from 'mpesa-tsc'
+npm intall --save mpesa-tsc
+yarn add mpesa-tsc  
+```
+
+``` javascript
+import {MpesaService} from 'mpesa-tsc'
 ```
 
 ``` javascript
@@ -24,11 +27,11 @@ let mpesaService = new MpesaService(
 ```
 
 ``` javascript
-let response = mpesaService.lipaNaMpesaOnline( 
-     Amount: '500', 
+let response = mpesaService.lipaNaMpesaOnline(
+     Amount: '500',
      PartyA: '254700123456',
      PhoneNumber: '254700123456',
-     AccountReference: 'YOUR RANDOM REFERENCE CODE', 
-     TransactionDesc: 'description', 
+     AccountReference: 'YOUR RANDOM REFERENCE CODE',
+     TransactionDesc: 'description',
 )
 ```  
