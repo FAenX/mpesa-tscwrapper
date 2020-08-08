@@ -18,11 +18,11 @@ import {MpesaService} from 'mpesa-tsc'
 
 ``` javascript
 let mpesaService = new MpesaService(
-    MPESA_CONSUMER_KEY,  
-    MPESA_CONSUMER_SECRET,
-    MPESA_SHORT_CODE,
-    MPESA_PASSWORD,
-    MPESA_CALLBACK_URL
+    CONSUMER_KEY,  /* get this from mpesa */
+    CONSUMER_SECRET,
+    SANDBOX_SHORT_CODE,
+    'random password',
+    CALLBACK_URL /* to get responses from mpesa */
 )
 ```
 
