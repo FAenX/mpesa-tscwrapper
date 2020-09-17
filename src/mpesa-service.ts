@@ -26,7 +26,7 @@ export interface LipaNaMpesaPayload {
     TransactionDesc: string
 }
 
-export class MpesaService {
+export class Mpesa {
   private consumerKey: string
   private consumerSecret: string
   private BusinessShortCode: string;
@@ -73,13 +73,13 @@ export class MpesaService {
       Password: password,
       Timestamp,
       TransactionType,
-      Amount: payload.Amount + '',
-      PartyA: payload.PhoneNumber + '',
+      Amount: payload.Amount,
+      PartyA: payload.PhoneNumber,
       PartyB: this.BusinessShortCode,
-      PhoneNumber: payload.PhoneNumber + '',
+      PhoneNumber: payload.PhoneNumber,
       CallBackURL: this.CallBackURL,
-      AccountReference: payload.AccountReference + '',
-      TransactionDesc: payload.TransactionDesc + '',
+      AccountReference: payload.AccountReference,
+      TransactionDesc: payload.TransactionDesc,
 
     };
 
