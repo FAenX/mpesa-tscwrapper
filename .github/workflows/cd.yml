@@ -1,4 +1,4 @@
-- run: echo "${{ toJson(${{ github.event) }}"
+run: echo "${{ toJson(${{ github.event) }}"
 
 name: NPM publish CD workflow
 
