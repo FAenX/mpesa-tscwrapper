@@ -2,22 +2,17 @@
 
 Wrapper for Mpesa Daraja Api using typescript
 
-It is still being developed,
-It currently only does lipa na mpesa for sandbox applications.
-
-Just a heads up !!
-
 ``` javascript
 npm intall --save mpesa-tsc
 yarn add mpesa-tsc  
 ```
 
 ``` javascript
-import {MpesaService} from 'mpesa-tsc'
+import {Mpesa} from 'mpesa-tsc'
 ```
 
 ``` javascript
-let mpesaService = new MpesaService(
+let mpesaService = new Mpesa(
     CONSUMER_KEY,  /* get this from mpesa */
     CONSUMER_SECRET,
     SANDBOX_SHORT_CODE,

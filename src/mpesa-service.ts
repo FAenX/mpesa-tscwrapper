@@ -11,21 +11,6 @@ const MPESA_PRODUCTION_URL = '';
 const MPESA_SANDBOX_AUTH_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 
 
-
-export interface LipaNaMpesaPayload {
-    BusinessShortCode: string,
-    Password: string,
-    Timestamp: string,
-    TransactionType: string,
-    Amount: string,
-    PartyA: string,
-    PartyB: string,
-    PhoneNumber: string,
-    CallBackURL: string,
-    AccountReference: string,
-    TransactionDesc: string
-}
-
 export class Mpesa {
   private consumerKey: string
   private consumerSecret: string
@@ -109,3 +94,23 @@ interface Payload{
 
 }
 
+export type MpesaResponse = {
+    Body: {stkCallback: {
+      CheckoutRequestID: string,
+      resultCode: number
+    }}
+}
+
+export type LipaNaMpesaPayload = {
+  BusinessShortCode: string,
+  Password: string,
+  Timestamp: string,
+  TransactionType: string,
+  Amount: string,
+  PartyA: string,
+  PartyB: string,
+  PhoneNumber: string,
+  CallBackURL: string,
+  AccountReference: string,
+  TransactionDesc: string
+}

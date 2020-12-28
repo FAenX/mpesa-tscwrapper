@@ -1,4 +1,4 @@
-import {MpesaService, LipaNaMpesaPayload} from './mpesa-service';
+import {Mpesa, LipaNaMpesaPayload} from './mpesa-service';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,7 +10,7 @@ const Password = 'password';
 const CallBackURL = "https://calbackurl";
 
 class PaymentService {
-  private mpesa = new MpesaService(
+  private mpesa = new Mpesa(
     MPESA_CONSUMER_KEY, 
     MPESA_CONSUMER_SECRET,
     BusinessShortCode,
