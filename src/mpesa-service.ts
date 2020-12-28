@@ -86,7 +86,7 @@ export class Mpesa {
   }
 }
 
-interface Payload{
+type Payload = {
   Amount: string,
   PhoneNumber: string,
   AccountReference: string,
