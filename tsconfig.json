@@ -21,7 +21,7 @@
     "sourceMap": true,
     "declaration": true
   },
-  "include": ["src"],
+  "include": ["src", "mytest.ts"],
   "exclude": [
     "**/node_modules/**",
     "**/dist/**",

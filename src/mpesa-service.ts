@@ -44,46 +44,43 @@ export class Mpesa {
 
   
 
-  async lipaNaMpesaOnline(payload: Payload) {
-    const Timestamp = moment().format('YYYYMMDDhhmmss');
-    const password = Buffer.from(this.BusinessShortCode + this.Password + Timestamp)
-      .toString('base64');
+  async lipaNaMpesaOnline(payload: Payload) :Promise<MpesaResponse>{
+    try{
+      const Timestamp = moment().format('YYYYMMDDhhmmss');
+      const password = Buffer.from(this.BusinessShortCode + this.Password + Timestamp)
+        .toString('base64');
 
-    const TransactionType: string = 'CustomerPayBillOnline';
-    const ACCESS_TOKEN = await this.authenticate();
-    const auth = 'Bearer ' + ACCESS_TOKEN;
+      const TransactionType: string = 'CustomerPayBillOnline';
+      const ACCESS_TOKEN = await this.authenticate();
+      const auth = 'Bearer ' + ACCESS_TOKEN;
 
-    const data: LipaNaMpesaPayload = {
-      BusinessShortCode: this.BusinessShortCode,
-      Password: password,
-      Timestamp,
-      TransactionType,
-      Amount: payload.Amount,
-      PartyA: payload.PhoneNumber,
-      PartyB: this.BusinessShortCode,
-      PhoneNumber: payload.PhoneNumber,
-      CallBackURL: this.CallBackURL,
-      AccountReference: payload.AccountReference,
-      TransactionDesc: payload.TransactionDesc,
+      const data: LipaNaMpesaPayload = {
+        BusinessShortCode: this.BusinessShortCode,
+        Password: password,
+        Timestamp,
+        TransactionType,
+        Amount: payload.Amount,
+        PartyA: payload.PhoneNumber,
+        PartyB: this.BusinessShortCode,
+        PhoneNumber: payload.PhoneNumber,
+        CallBackURL: this.CallBackURL,
+        AccountReference: payload.AccountReference,
+        TransactionDesc: payload.TransactionDesc,
 
-    };
+      };
 
-    const res = axios.post(
-      MPESA_SANDBOX_URL,
-      data,
-      {headers: {'Authorization': auth}},
-    );
+      return axios.post(
+        MPESA_SANDBOX_URL,
+        data,
+        {headers: {'Authorization': auth}},
+      ).then(res=>res.data).catch(err=>{throw new Error(err.response.data)});
+    
 
-    return await res.then(res=>{
-      return res.data;
-    })
-      .catch(response=>{
-        return {
-          status: response.response.status,
-          data: response.response.data,
-        };
-      });
+    }catch(e){
+      throw new Error(e)
+    }
   }
+    
 }
 
 type Payload = {
