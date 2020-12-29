@@ -95,10 +95,15 @@ type Payload = {
 }
 
 export type MpesaResponse = {
-    Body: {stkCallback: {
+  Body: {
+    stkCallback: {
+      MerchantRequestID: string,
       CheckoutRequestID: string,
-      resultCode: number
-    }}
+      ResultCode: 0,
+      ResultDesc: string,
+      CallbackMetadata?: unknown
+    },
+  },
 }
 
 export type LipaNaMpesaPayload = {
@@ -114,3 +119,9 @@ export type LipaNaMpesaPayload = {
   AccountReference: string,
   TransactionDesc: string
 }
+
+
+
+
+
+  
