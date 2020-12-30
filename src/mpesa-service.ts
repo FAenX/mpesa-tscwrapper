@@ -74,7 +74,7 @@ export class Mpesa {
         MPESA_SANDBOX_URL,
         data,
         {headers: {'Authorization': auth}},
-      ).then(res=>res.data).catch(err=>{throw new Error(err.response.data)});
+      ).then(res=>res.data).catch(err=>err.response.data);
     
 
     }catch(e){
