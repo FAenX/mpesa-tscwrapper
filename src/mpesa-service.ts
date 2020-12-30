@@ -44,7 +44,7 @@ export class Mpesa {
 
   
 
-  async lipaNaMpesaOnline(payload: Payload) :Promise<MpesaResponse>{
+  async lipaNaMpesaOnline(payload: Payload) :Promise<PaymentResponse>{
     try{
       const Timestamp = moment().format('YYYYMMDDhhmmss');
       const password = Buffer.from(this.BusinessShortCode + this.Password + Timestamp)
@@ -91,7 +91,7 @@ type Payload = {
 
 }
 
-export type MpesaResponse = {
+export type CallBack = {
   Body: {
     stkCallback: {
       MerchantRequestID: string,
@@ -115,6 +115,14 @@ export type LipaNaMpesaPayload = {
   CallBackURL: string,
   AccountReference: string,
   TransactionDesc: string
+}
+
+export type PaymentResponse = {
+  MerchantRequestID: string,
+  CheckoutRequestID: string,
+  ResponseCode: string,
+  ResponseDescription: string,
+  CustomerMessage: string
 }
 
 
