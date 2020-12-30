@@ -13,7 +13,9 @@ export type CallBack = {
         CheckoutRequestID: string,
         ResultCode: 0,
         ResultDesc: string,
-        CallbackMetadata?: unknown
+        CallbackMetadata?: {
+            Item: {Name: string, Value?: string }[]
+            },
         },
     },
 }
