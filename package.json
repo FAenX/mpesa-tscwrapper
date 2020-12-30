@@ -1,6 +1,6 @@
 {
   "name": "mpesa-tsc",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "A wrapper for mpesa api using typescript",
   "main": "dist/index.js",
   "scripts": {
