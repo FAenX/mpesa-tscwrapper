@@ -70,13 +70,11 @@ export class Mpesa {
 
       };
 
-      const response = await axios.post(
+      return axios.post(
         MPESA_SANDBOX_URL,
         data,
         {headers: {'Authorization': auth}},
-      );
-
-      return response.data
+      ).then(res=>res.data).catch(err=>err.response.data);
     
 
     }catch(e){
