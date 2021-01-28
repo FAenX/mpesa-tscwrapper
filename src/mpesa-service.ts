@@ -78,7 +78,7 @@ export class Mpesa {
     
 
     }catch(e){
-      throw new Error(e)
+      throw new Error(e.message)
     }
   }
     
