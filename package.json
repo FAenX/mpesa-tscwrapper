@@ -1,6 +1,6 @@
 {
   "name": "@coderafiki/mpesa-tsc",
-  "version": "1.0.32",
+  "version": "1.0.35",
   "description": "A wrapper for mpesa api using typescript",
   "main": "dist/index.js",
   "scripts": {
